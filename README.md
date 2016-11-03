@@ -12,10 +12,10 @@ git clone --recursive https://github.com/justvanbloom/nheqminer
 
 # Features
 
-![nhqmac Screenshot](http://justvanbloom.de/macminer.png)
+![nhqmac Screenshot](macminer.png)
 
 Major things:
-- Implemented all fast implementations (tromp and xenoncat with AVX1/AVX2) 
+- Implemented all fast implementations (tromp and xenoncat with AVX1/AVX2)
 - Better support for other platforms
 
 Platforms:
@@ -50,7 +50,7 @@ I would suggest putting nheqminer inside while true loop in order to have basic 
 
 # Building
 
-Add -DXENON to cmake to build with AVX/AVX2 support. 
+Add -DXENON to cmake to build with AVX/AVX2 support.
 
 ## Options to build Fastest miner
 
@@ -58,7 +58,7 @@ If you are building for Linux and for your processor on local machine (with AVX1
 
 `cmake -DXENON=1 ..`
 
-This will build -march=native by default. 
+This will build -march=native by default.
 
 If you need to transfer binaries to other machines and automatically detect AVX1/AVX2 or not, you can say something like:
 
@@ -82,7 +82,7 @@ make
 ```
 
 ## Linux cmake **recommended** (Tested on Ubuntu Desktop 14.04 and 16.04 and Ubuntu server 14.04):
-You should have **CMake** installed (2.8 minimal version), boost (install from the repositories or download boost manually build and install it manually), download the sources manually or via git. 
+You should have **CMake** installed (2.8 minimal version), boost (install from the repositories or download boost manually build and install it manually), download the sources manually or via git.
 Under Ubuntu open a terminal and run the following commands:
   - `sudo apt-get install cmake build-essential libboost-all-dev`
   - `git clone --recursive https://github.com/justvanbloom/nheqminer.git`
@@ -95,7 +95,7 @@ Under Ubuntu open a terminal and run the following commands:
 Note: for the fastest miner, it is recommended to use `cmake -DXENON=2 ..`
 
 ## Windows cmake **recommended** (Tested on Fedora 22):
-You should have **CMake** installed (2.8 minimal version), boost (install from the repositories or download boost manually build and install it manually), download the sources manually or via git. 
+You should have **CMake** installed (2.8 minimal version), boost (install from the repositories or download boost manually build and install it manually), download the sources manually or via git.
 Under Fedora open a terminal and run the following commands:
 
   - `sudo dnf install mingw64-winpthreads-static mingw64-boost-static cmake make git`
@@ -107,7 +107,7 @@ Under Fedora open a terminal and run the following commands:
   - `make`
 
 ## Full static Linux cmake **auto-AVX build recommended** (Tested on Alpine 3.4):
-You should have **CMake** installed (2.8 minimal version), boost (install from the repositories or download boost manually build and install it manually), download the sources manually or via git. 
+You should have **CMake** installed (2.8 minimal version), boost (install from the repositories or download boost manually build and install it manually), download the sources manually or via git.
 Under Alpine open a terminal and run the following commands:
   - `sudo apk add --update git cmake make gcc g++ libc-dev boost-dev`
   - `git clone --recursive https://github.com/justvanbloom/nheqminer.git`
@@ -127,7 +127,7 @@ Under Mac open a terminal and run the following commands:
   - `cd build`
   - `cmake -DXENON=1 -DSTATIC_BUILD=1 ..`
   - `make`
-  
+
 ## Windows (Microsoft Visual Studio - needs tweaking):
 Download and install:
 - Visual Studio 2013 Community: https://www.visualstudio.com/en-us/news/releasenotes/vs2013-community-vs
@@ -173,11 +173,11 @@ Parameters:
 Example to run benchmark:
 
         nheqminer_x64_AVX.exe -b
-        
+
 Example to run with full logging (including network dump):
 
         nheqminer_x64_AVX.exe -d 0
-        
+
 Example to mine with your own ZEC address and worker1 on USA server:
 
         nheqminer_x64_AVX.exe -l eu1-zcash.flypool.org:3333 -u YOUR_ZCASH_ADDRESS_HERE.worker1
@@ -211,7 +211,3 @@ Author of Mac GUI for this miner: JustVanBlooM
 If you feel this project is useful to you. Feel free to donate.
 
     BTC address: 1GaGRtcCjb7ThaDgDLjgVwV8fctzEf12ct
-
-
-
-
