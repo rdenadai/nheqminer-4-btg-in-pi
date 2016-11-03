@@ -2,6 +2,10 @@
 
 Equihash/zcash/zec miner (can be used for pool mining)
 
+# Mac Version Download
+
+[Mac Miner Download!](mac/nheqminer)
+
 **NOTE: Common mistake is to clone this repo without recursive, you need to use --recursive**
 
 ```
