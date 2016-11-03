@@ -6,13 +6,6 @@ Equihash/zcash/zec miner (can be used for pool mining)
 
 [Mac Miner Download!](mac/nheqminer)
 
-**NOTE: Common mistake is to clone this repo without recursive, you need to use --recursive**
-
-```
-git clone --recursive https://github.com/justvanbloom/nheqminer
-```
-
-**Your build with XENON/XENONCAT will fail otherwise**
 
 # Features
 
@@ -51,6 +44,15 @@ Example
 
 I would suggest putting nheqminer inside while true loop in order to have basic watchdog. i.e.
 `while true; do nheqminer -l equihash.eu.nicehash.com:3357 -u 1GaGRtcCjb7ThaDgDLjgVwV8fctzEf12ct -p x -t 4; echo "sleep & restart"; sleep 30; done`
+
+# Clone
+
+**NOTE: Common mistake is to clone this repo without recursive, you need to use --recursive**
+
+```
+git clone --recursive https://github.com/justvanbloom/nheqminer
+```
+**Your build with XENON/XENONCAT will fail otherwise**
 
 # Building
 
