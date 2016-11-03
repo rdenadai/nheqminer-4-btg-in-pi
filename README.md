@@ -5,12 +5,14 @@ Equihash/zcash/zec miner (can be used for pool mining)
 **NOTE: Common mistake is to clone this repo without recursive, you need to use --recursive**
 
 ```
-git clone --recursive https://github.com/kost/nheqminer
+git clone --recursive https://github.com/justvanbloom/nheqminer
 ```
 
 **Your build with XENON/XENONCAT will fail otherwise**
 
 # Features
+
+![nhqmac Screenshot](http://justvanbloom.de/macminer.png)
 
 Major things:
 - Implemented all fast implementations (tromp and xenoncat with AVX1/AVX2) 
@@ -23,28 +25,28 @@ Platforms:
 
 # Usage
 
+
+### nicehash
+`nheqminer -l equihash.eu.nicehash.com:3357 -u YourBitcoinAdress.YourWorker -p x -t threadCount`
+
+Example
+`nheqminer -l equihash.eu.nicehash.com:3357 -u 1GaGRtcCjb7ThaDgDLjgVwV8fctzEf12ct -p x -t 4`
+
 ### flypool
 `nheqminer -l eu1-zcash.flypool.org:3333 -u ZcashTransparentAddress`
 
-Example:
-`nheqminer -l eu1-zcash.flypool.org:3333 -u t1JBZzdaUUSJDs8q7SUxcCSzakThqtNRtNv`
-
 ### suprnova
-nheqminer -l zec.suprnova.cc:2142 -u suprnovaaccount.1 -p x -t threadCount 
-
-Example:
-`nheqminer -l zec.suprnova.cc:2142 -u suprnova.1 -p x`
+`nheqminer -l zec.suprnova.cc:2142 -u suprnovaaccount.1 -p x -t threadCount`
 
 ### zmine
 `nheqminer  -l zmine.io:1337 -u ZcashTransparentAddress`
 
-Example:
-`nheqminer  -l zmine.io:1337 -u t1JBZzdaUUSJDs8q7SUxcCSzakThqtNRtNv`
+
 
 ## Production usage
 
 I would suggest putting nheqminer inside while true loop in order to have basic watchdog. i.e.
-`while true; do nheqminer -l zec.suprnova.cc:2142 -u suprnova.1 -p x; echo "sleep & restart"; sleep 30; done`
+`while true; do nheqminer -l equihash.eu.nicehash.com:3357 -u 1GaGRtcCjb7ThaDgDLjgVwV8fctzEf12ct -p x -t 4; echo "sleep & restart"; sleep 30; done`
 
 # Building
 
@@ -71,7 +73,7 @@ Note AVX/AVX2 binaries should automatically downgrade to tromp if nothing else f
 Full example:
 ```
 sudo apt-get install cmake build-essential libboost-all-dev
-git clone --recursive https://github.com/kost/nheqminer.git
+git clone --recursive https://github.com/justvanbloom/nheqminer.git
 cd nheqminer/nheqminer
 mkdir build
 cd build
@@ -83,7 +85,7 @@ make
 You should have **CMake** installed (2.8 minimal version), boost (install from the repositories or download boost manually build and install it manually), download the sources manually or via git. 
 Under Ubuntu open a terminal and run the following commands:
   - `sudo apt-get install cmake build-essential libboost-all-dev`
-  - `git clone --recursive https://github.com/kost/nheqminer.git`
+  - `git clone --recursive https://github.com/justvanbloom/nheqminer.git`
   - `cd nheqminer/nheqminer`
   - `mkdir build`
   - `cd build`
@@ -97,7 +99,7 @@ You should have **CMake** installed (2.8 minimal version), boost (install from t
 Under Fedora open a terminal and run the following commands:
 
   - `sudo dnf install mingw64-winpthreads-static mingw64-boost-static cmake make git`
-  - `git clone --recursive https://github.com/kost/nheqminer.git`
+  - `git clone --recursive https://github.com/justvanbloom/nheqminer.git`
   - `cd nheqminer/nheqminer`
   - `mkdir build`
   - `cd build`
@@ -108,7 +110,7 @@ Under Fedora open a terminal and run the following commands:
 You should have **CMake** installed (2.8 minimal version), boost (install from the repositories or download boost manually build and install it manually), download the sources manually or via git. 
 Under Alpine open a terminal and run the following commands:
   - `sudo apk add --update git cmake make gcc g++ libc-dev boost-dev`
-  - `git clone --recursive https://github.com/kost/nheqminer.git`
+  - `git clone --recursive https://github.com/justvanbloom/nheqminer.git`
   - `cd nheqminer/nheqminer`
   - `mkdir build`
   - `cd build`
@@ -119,7 +121,7 @@ Under Alpine open a terminal and run the following commands:
 ## Mac OS X  (Tromp and Xenoncat):
 You need to have git, cmake, make and Mac OS X Developer stuff (compiler, etc).
 Under Mac open a terminal and run the following commands:
-  - `git clone --recursive https://github.com/kost/nheqminer.git`
+  - `git clone --recursive https://github.com/justvanbloom/nheqminer.git`
   - `cd nheqminer/nheqminer`
   - `mkdir build`
   - `cd build`
@@ -127,8 +129,6 @@ Under Mac open a terminal and run the following commands:
   - `make`
   
 ## Windows (Microsoft Visual Studio - needs tweaking):
-Windows builds made by us are available here: https://github.com/kost/nheqminer/releases
-
 Download and install:
 - Visual Studio 2013 Community: https://www.visualstudio.com/en-us/news/releasenotes/vs2013-community-vs
 - Visual C++ Compiler November 2013 CTP: https://www.microsoft.com/en-us/download/details.aspx?id=41151
@@ -204,14 +204,14 @@ Special thanks to [Zcash Community on Slack](https://zcashcommunity.slack.com)
 ## Credits
 
 Author of this miner: Kost
+Author of Mac GUI for this miner: JustVanBlooM
 
 ## Donations
 
 If you feel this project is useful to you. Feel free to donate.
 
-    BTC address: 1KHRiwNdFiL4uFUGFEpbG7t2F3pUcttLuX
+    BTC address: 1GaGRtcCjb7ThaDgDLjgVwV8fctzEf12ct
 
-    ZEC address: t1JBZzdaUUSJDs8q7SUxcCSzakThqtNRtNv
 
 
 
