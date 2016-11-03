@@ -421,3 +421,4 @@ build
 !nheqminer/libs/**
 !trompequihash/pthreads**
 !nheqminer/boost/**
+/mac/start.sh
