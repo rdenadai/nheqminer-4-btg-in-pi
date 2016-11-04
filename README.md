@@ -4,7 +4,7 @@ Equihash/zcash/zec miner (can be used for pool mining)
 
 # Mac Version Download
 
-[Mac Miner Download!](mac/nheqminer)
+[Mac Miner Download!](raw/kost/mac/nheqminer.zip)
 
 
 # Features
