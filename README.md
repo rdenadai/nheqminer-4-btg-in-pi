@@ -205,5 +205,6 @@ Author of Mac GUI for this miner: JustVanBlooM
 ## Donations
 
 If you feel this project is useful to you. Feel free to donate.
-    BTC address Just Van Bloom: 12Yc3Ezayhnm4X9x3nxV7vWY1h2qpWgajc
+
+    BTC address StarbuckBG : 12Yc3Ezayhnm4X9x3nxV7vWY1h2qpWgajc
     BTC address Just Van Bloom: 1GaGRtcCjb7ThaDgDLjgVwV8fctzEf12ct
