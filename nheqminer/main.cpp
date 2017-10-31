@@ -73,13 +73,13 @@ namespace keywords = boost::log::keywords;
 
 int main(int argc, char* argv[])
 {
-	std::cout << "ZCASH CPU Miner - https://github.com/justvanbloom/nheqminer " STANDALONE_MINER_NAME "/" STANDALONE_MINER_VERSION << std::endl;
-	std::cout << "Thanks to Zcash developers and community, nicehash, tromp, kost and xenoncat. Donate!" << std::endl;
-	std::cout << "BTC:1GaGRtcCjb7ThaDgDLjgVwV8fctzEf12ct" << std::endl;
+	std::cout << "Bitcoin Gold CPU Miner - https://github.com/starcukbg/nheqminer " STANDALONE_MINER_NAME "/" STANDALONE_MINER_VERSION << std::endl;
+	std::cout << "Thanks to Zcash developers and community, nicehash, tromp, kost and xenoncat, justvanbloom. Donate!" << std::endl;
+	std::cout << "BTC:12Yc3Ezayhnm4X9x3nxV7vWY1h2qpWgajc" << std::endl;
 	std::cout << std::endl;
 
-	std::string location = "equihash.eu.nicehash.com:3357";
-	std::string user = "1GaGRtcCjb7ThaDgDLjgVwV8fctzEf12ct";
+    std::string location = "pool.gold:3038";
+	std::string user = "GSrP5KGxrgBXV1kQkAPy2g3fmgcUeoESMw";
 	std::string password = "x";
 	int num_threads = -1;
 	bool benchmark = false;
