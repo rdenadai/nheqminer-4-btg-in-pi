@@ -1,8 +1,6 @@
 # Nheqminer
 
-Equihash/zcash/zec miner (can be used for pool mining)
-
-# Mac Version Download
+Equihash/btg/zcash/zec miner (can be used for pool mining)
 
 [Mac Miner Download!](https://github.com/StarbuckBG/nheqminer-bitcoin-gold/releases/download/v0.4-BTG/BTG-nheqminer.zip)
 
@@ -69,7 +67,7 @@ Note AVX/AVX2 binaries should automatically downgrade to tromp if nothing else f
 Full example:
 ```
 sudo apt-get install cmake build-essential libboost-all-dev
-git clone --recursive https://github.com/justvanbloom/nheqminer.git
+git clone --recursive https://github.com/rdenadai/nheqminer.git
 cd nheqminer/nheqminer
 mkdir build
 cd build
@@ -81,7 +79,7 @@ make
 You should have **CMake** installed (2.8 minimal version), boost (install from the repositories or download boost manually build and install it manually), download the sources manually or via git.
 Under Ubuntu open a terminal and run the following commands:
   - `sudo apt-get install cmake build-essential libboost-all-dev`
-  - `git clone --recursive https://github.com/justvanbloom/nheqminer.git`
+  - `git clone --recursive https://github.com/rdenadai/nheqminer.git`
   - `cd nheqminer/nheqminer`
   - `mkdir build`
   - `cd build`
@@ -90,12 +88,12 @@ Under Ubuntu open a terminal and run the following commands:
 
 Note: for the fastest miner, it is recommended to use `cmake -DXENON=2 ..`
 
-## Windows cmake **recommended** (Tested on Fedora 22):
+## Windows cmake **recommended** (Tested on Fedora 23):
 You should have **CMake** installed (2.8 minimal version), boost (install from the repositories or download boost manually build and install it manually), download the sources manually or via git.
 Under Fedora open a terminal and run the following commands:
 
   - `sudo dnf install mingw64-winpthreads-static mingw64-boost-static cmake make git`
-  - `git clone --recursive https://github.com/justvanbloom/nheqminer.git`
+  - `git clone --recursive https://github.com/rdenadai/nheqminer.git`
   - `cd nheqminer/nheqminer`
   - `mkdir build`
   - `cd build`
@@ -106,7 +104,7 @@ Under Fedora open a terminal and run the following commands:
 You should have **CMake** installed (2.8 minimal version), boost (install from the repositories or download boost manually build and install it manually), download the sources manually or via git.
 Under Alpine open a terminal and run the following commands:
   - `sudo apk add --update git cmake make gcc g++ libc-dev boost-dev`
-  - `git clone --recursive https://github.com/justvanbloom/nheqminer.git`
+  - `git clone --recursive https://github.com/rdenadai/nheqminer.git`
   - `cd nheqminer/nheqminer`
   - `mkdir build`
   - `cd build`
@@ -117,14 +115,41 @@ Under Alpine open a terminal and run the following commands:
 ## Mac OS X  (Tromp and Xenoncat):
 You need to have git, cmake, make and Mac OS X Developer stuff (compiler, etc).
 Under Mac open a terminal and run the following commands:
-  - `git clone --recursive https://github.com/justvanbloom/nheqminer.git`
+  - `git clone --recursive https://github.com/rdenadai/nheqminer.git`
   - `cd nheqminer/nheqminer`
   - `mkdir build`
   - `cd build`
   - `cmake -DXENON=1 -DSTATIC_BUILD=1 ..`
   - `make`
+  
+## Linux cmake on Raspberry PI (Tested on Raspberry PI 2):
+You should have **CMake** installed (2.8 minimal version), boost (install from the repositories or download boost manually build and install it manually), download the sources manually or via git. 
+Under Raspbian open a terminal and run the following commands:
+  - `sudo apt-get install git cmake build-essential libboost-all-dev`
+  - `git clone --recursive https://github.com/UMRnInside/nheqminer-SIMDe`
+  - `cd nheqminer/nheqminer`
+  - `mkdir build`
+  - `cd build`
+  - `cmake -DNONINTEL=1 ..` or
+  - `cmake -DNONINTEL=1 -DSIMDE=1 -DOPENMP=1` for SIMDe
+  - `make`
+
+## Linux cmake on Raspberry PI (Tested on Alpine on Raspberry PI):
+You should have **CMake** installed (2.8 minimal version), boost (install from the repositories or download boost manually build and install it manually), download the sources manually or via git. 
+Under Alpine open a terminal and run the following commands:
+  - `sudo apk add --update git cmake make gcc g++ libc-dev boost-dev`
+  - `git clone --recursive https://github.com/UMRnInside/nheqminer-SIMDe`
+  - `cd nheqminer/nheqminer`
+  - `mkdir build`
+  - `cd build`
+  - `cmake -DNONINTEL=1 -DSTATIC_BUILD=1 ..` or
+  - `cmake -DNONINTEL=1 -DSTATIC_BUILD=1 -DSIMDE=1 -DOPENMP=1 ..` for SIMDe
+  - `make`
+
 
 ## Windows (Microsoft Visual Studio - needs tweaking):
+Windows builds made by kost are available here: https://github.com/kost/nheqminer/releases
+
 Download and install:
 - Visual Studio 2013 Community: https://www.visualstudio.com/en-us/news/releasenotes/vs2013-community-vs
 - Visual C++ Compiler November 2013 CTP: https://www.microsoft.com/en-us/download/details.aspx?id=41151
@@ -143,9 +168,15 @@ Mac OS X:
 cmake -DXENON=1 -DSTATIC_BUILD=1 -DMARCH="-m64" ..
 ```
 
-Windows (on Fedora 22 with MingW):
+Windows (on Fedora 23 with MingW) (Docker: fedora:23):
 ```
 cmake -DXENON=1 -DSTATIC_BUILD=1 -DMARCH="-m64" -DCMAKE_TOOLCHAIN_FILE=../toolchain-mingw64.cmake ..
+```
+
+Linux on Raspberry PI (Docker: kaffepanna/alpine-armv7-qemu):
+```
+Host: apt-get install qemu qemu-user-static binfmt-support
+cmake -DNONINTEL=1 -DSTATIC_BUILD=1 -DMARCH="-Wall" ..
 ```
 
 
@@ -185,7 +216,10 @@ Example to mine with your own ZEC address and worker1 on EU server, using 6 thre
 <i>Note: if you have a 4-core CPU with hyper threading enabled (total 8 threads) it is best to run with only 6 threads (experimental benchmarks shows that best results are achieved with 75% threads utilized)</i>
 
 
-
+# Notes
+ - On ARM64 SIMDe seems to run slowlier then nonintel
+ - SIMDe have complete SSE3 simulation only
+ - SIMDe wrapped only TROMP-SSE2
 
 # Acknowledgments and credits
 
@@ -196,10 +230,11 @@ Thanks to Zcash developers for providing most of the code
 Special thanks to tromp for providing optimized CPU equihash solver
 Special thanks to xenoncat for providing assembly optimized CPU equihash solver
 Special thanks to [Zcash Community on Slack](https://zcashcommunity.slack.com)
+Special thanks to nemequ, the author of [SIMD Everywhere](https://github.com/nemequ/simde)
 
 ## Credits
 
-Author of this miner: Kost
+Author of this miner: Kost, StarbuckBG, UMRnInside
 Author of Mac GUI for this miner: JustVanBlooM
 
 ## Donations
@@ -208,3 +243,5 @@ If you feel this project is useful to you. Feel free to donate.
 
     BTC address StarbuckBG : 12Yc3Ezayhnm4X9x3nxV7vWY1h2qpWgajc
     BTC address Just Van Bloom: 1GaGRtcCjb7ThaDgDLjgVwV8fctzEf12ct
+    Kost's BTC address: 1KHRiwNdFiL4uFUGFEpbG7t2F3pUcttLuX
+    Kost's ZEC address: t1JBZzdaUUSJDs8q7SUxcCSzakThqtNRtNv

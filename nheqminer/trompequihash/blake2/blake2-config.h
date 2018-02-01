@@ -19,6 +19,11 @@
 #define HAVE_SSE2
 #endif
 
+#if defined(USE_SIMDE) && !defined(HAVE_SSE2)
+#define HAVE_SSE2
+#warning The SIMDe mod is still experimental
+#endif
+
 #if defined(__SSSE3__)
 #define HAVE_SSSE3
 #endif
